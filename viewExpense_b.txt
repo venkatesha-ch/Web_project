@@ -1,0 +1,17 @@
+<tr>
+<td>
+sl_no
+</td>
+                            <td>
+                                Name_val
+                            </td>
+                            <td>
+                            date_val
+                            </td>
+                            <td>
+                                amount
+                            </td>
+                            <td>
+                            <button type="submit" name=delete onclick="deleteItem(sl_no)">Delete</button>
+                            </td>
+</tr>

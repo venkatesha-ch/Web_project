@@ -1,0 +1,25 @@
+<div class="table-responsive table-bordered">
+    <table id="myTable">
+<thead>
+                            <tr>
+
+                                <th>
+                                    #
+                                </th>
+
+                                <th>
+                                    Name
+                                </th>
+                                <th>
+                                    Date
+                                </th>
+                                <th>
+                                    Amount
+                                </th>
+                                <th>
+                                Delete
+                                </th>
+                            </tr>
+                       </thead>
+                       
+                      <tbody>

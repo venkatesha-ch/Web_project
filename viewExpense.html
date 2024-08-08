@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    table {
+      table-layout: fixed;
+      width: 100%;
+      border-collapse: collapse;
+      border: 3px solid red;
+    }
+
+    thead th:nth-child(1) {
+      width: 10%;
+    }
+
+    thead th:nth-child(2) {
+      width: 30%;
+    }
+
+    thead th:nth-child(3) {
+      width: 15%;
+    }
+
+    thead th:nth-child(4) {
+      width: 20%;
+    }
+
+    thead th:nth-child(5) {
+      width: 20%;
+    }
+
+    th,
+    td {
+      padding: 5px;
+    }
+
+    html {
+      font-family: 'helvetica neue', helvetica, arial, sans-serif;
+    }
+
+    thead th,
+    tfoot th {
+      font-family: 'Rock Salt', cursive;
+    }
+
+    th {
+      letter-spacing: 2px;
+    }
+
+    td {
+      letter-spacing: 1px;
+    }
+
+    tbody td {
+      text-align: center;
+    }
+
+    tfoot th {
+      text-align: right;
+    }
+
+    thead,
+    tfoot {
+      color: white;
+      text-shadow: 1px 1px 1px black;
+    }
+
+    h1,
+    h2,
+    address {
+      size: 50%;
+      color: black;
+      text-align: center;
+    }
+
+    thead th,
+    tfoot th,
+    tfoot td {
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.5));
+      border: 3px solid red;
+    }
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+
+    li,
+    input {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111111;
+    }
+  </style>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ॐ</title>
+
+</head>
+
+<body>
+  <div style="padding: 1%;text-align: center;">
+    <h1>
+      Shri Vanashasthara Devastahana Seva Trust
+    </h1>
+    <address>
+      Denthadka, Padnur, Puttur, DK
+    </address>
+  </div>
+  <ul>
+    <li><a href="/">Home</a></li>
+  </ul>
+  <br>
+  <div style="text-align: left; font-size: 30px;">
+    Expense List
+  </div>
+
+  <br>
+  <div>
+    <div>
+      <table id='myTable'>
+        <h2>Result will be shown here</h2>
+      </table>
+    </div>
+  </div>
+
+</body>
+<script>
+  //gets table
+  function deleteItem(rowNum) {
+    if(confirm("Confirm deletion") == true)
+    {
+
+    var oTable = document.getElementById('myTable');
+
+    //gets rows of table
+    var rowLength = oTable.rows.length;
+
+    // //loops through rows    
+
+    //   //gets cells of current row  
+    var oCells = oTable.rows.item(rowNum).cells;
+
+    //gets amount of cells of current row
+
+    //           // get your cell info here
+
+    var name = oCells.item(1).innerHTML;
+    var date = oCells.item(2).innerHTML;
+    var amount = oCells.item(3).innerHTML;
+    // console.log(cellVal);
+    var data_val = [
+      name.trim(),amount.trim(),date.trim()
+    ]
+    console.log(data_val);
+    const form = document.createElement('form');
+    form.method = 'post';
+    form.action = '/delete_expense';
+    const hiddenField = document.createElement('input');
+    hiddenField.type = 'hidden';
+    hiddenField.name = 'data_val';
+    hiddenField.value = data_val;
+
+    form.appendChild(hiddenField);
+
+    document.body.appendChild(form);
+    form.submit();
+  }
+}
+
+</script>
+
+</html>

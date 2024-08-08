@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+  <html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    .myClass {
+      float: left;
+    }
+td{
+  padding: 10px;
+  font-size: 20px;
+}
+body{
+  background-color: lightgrey ;
+}
+    label {
+      margin-left: 0px;
+      color: #8e3535;
+    }
+    
+
+    ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+
+    li,
+    input {
+      float: left;
+    }
+
+    li a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+
+    li a:hover {
+      background-color: #111111;
+    }
+
+    .btn-cls a:hover{
+      background-color: red;
+    }
+    button,
+    input[type="submit"] {
+      border-radius: 2px;
+      padding: 9px 15px;
+      background: rgb(214, 150, 32);
+      border: 0;
+      font-size: 14px;
+      color: rgb(8, 69, 155);
+    }
+
+    input[type=button],
+    input[type=number],
+    input[type=date],
+    input[type=text] {
+      background-color: #d4d884;
+      border: none;
+      color: black;
+      padding: 16px 32px;
+      text-decoration: none;
+      margin: 4px 2px;
+      cursor: pointer;
+      border-radius: 2px;
+      font-size: 25px;
+
+    }
+
+    input {
+      width: 80%;
+    }
+
+    input[type=button],
+    input[type=number],
+    input[type=date],
+    input[type=text] {
+      border: 2px solid rgb(3, 3, 3);
+      border-radius: 4px;
+    }
+input{
+  caret-color: #111111;
+}
+    input[type=text] input[type=number] input[type=date] {
+      width: 100%;
+      padding: 12px 20px;
+      margin: 8px 0;
+      box-sizing: border-box;
+    }
+  </style>
+  <title>ॐ</title>
+</head>
+
+<body>
+  <div style="padding: 1%;text-align: center;">  <h1>
+    Shri Vanashasthara Devastahana Seva Trust
+  </h1>
+  <address>
+    Denthadka, Padnur, Puttur, DK
+  </address>
+  </div>
+  <br>
+  <ul>
+    <li><a href="view_expense">View Expense</a></li>
+    <li><a href="view.html">Seach Donation</a></li>
+    <li><a href="view_all">View Donation</a></li>
+    <!-- <li class="btn-cls"><a href="view_all">Delete Expense</a></li> -->
+    <!-- <li class="btn-cls"><a href="view_all">Delete Donation</a></li> -->
+  </ul>
+  <br>
+  <table style="table-layout: fixed;width: 80%; margin-left: 10%; text-align: center;">
+    <tr>
+      
+      <td>
+        Total Collection 
+      </td>
+      <td>
+        Total Expense 
+      </td>
+      <td>
+        Availabe Balance 
+      </td>
+    </tr><tr>
+      <td>
+        <label>{%Collection_value%}</label>
+      </td>
+      <td>
+        <label>{%expense_value%}</label>
+      </td>
+    <td>
+      <label>{%balance_value%}</label>
+    </td>
+
+    </tr>
+  </table>
+
+  <table style="table-layout: fixed; width: 100%;">
+    <tr>
+      <td>
+        <div style="width: 80%;padding: 10%;">
+          <h2>
+            Add Donation  
+          </h2>
+          <form method="post" action="/post_data">
+            <div>
+              <label for="Name">Name</label>
+              <input type="text" class="form-control" autocomplete="off" id="Name" name="Name" placeholder="Enter Name" required />
+            </div>
+
+            <div>
+              <label for="date">Donation Date</label>
+              <input type="date" class="form-control" autocomplete="off" id="date" name="date" placeholder="date"
+                required />
+              <span id="user-availability-status1" style="font-size:12px;">
+            </div>
+
+            <div>
+              <label for="amount">Amount</label>
+              <input type="number" class="form-control" id="amount" autocomplete="off" name="amount" placeholder="Amount" required />
+              <span id="user-availability-status1" style="font-size:12px;">
+            </div>
+            <button type="submit" style="width: 40%;margin-top: 10px; margin-left: 30%;">Submit</button>
+          </form>
+        </div>
+      </td>
+      <td>
+      <div style="width: 80%;padding: 10%;">
+        <h2>
+          Add Expense
+        </h2>
+        <form method="post" action="/post_expense">
+          <div>
+            <label for="expense">Expense</label>
+            <input type="text" class="form-control" id="expense" autocomplete="off" name="expense" placeholder="Expense for ??"
+              required />
+          </div>
+          <div>
+            <div>
+              <label for="date">Expense Date</label>
+              <input type="date" class="form-control" autocomplete="off" id="date" name="date" placeholder="date"
+                required />
+              <span id="user-availability-status1" style="font-size:12px;">
+            </div>
+            <label for="amount">Amount</label>
+            <input type="number" class="form-control" autocomplete="off" id="amount" name="amount" placeholder="Enter Amount" required />
+            <span id="user-availability-status1" style="font-size:12px;">
+          </div>
+          <br>
+          <br>
+          <br>
+          <button type="submit" style="width: 40%;margin-top: 10px; margin-left: 30%;">Submit</button>
+        </form>
+      </div>
+      </td>
+    </tr>
+  </table>
+</body>
+<script>
+  function viewall() {
+    open('view_all', '_parent');
+  }
+  function viewexpense() {
+    open('view_expense', '_parent');
+  }
+  function callme() {
+    open('view.html', '_parent');
+    console.log('opening')
+  }
+</script>
+
+</html>

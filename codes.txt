@@ -1,0 +1,47 @@
+const express = require('express');
+const mongoose = require('mongoose');
+const Test = require('./Test');
+
+const app = express();
+const PORT = 5000;
+app.use(express.json());
+
+mongoose.connect(
+    "mongodb://localhost:27017/test",
+    { useNewUrlParser: true, useUnifiedTopology: true },
+    (err) =>{
+        if(err) console.log(err);
+        else console.log("Conneted");
+    }
+);
+app.get("/ho", async(req, res) =>{
+try{
+    const test = await Test.findById("5f5dd2d5df63b00857a750e0");
+    console.log(test);
+    res.send(test);
+}
+catch(err){
+    console.log(err);
+}
+
+
+})
+
+
+app.listen(PORT, ()=>{
+    console.log("server started");
+})
+
+//////////
+const mongoose = require("mongoose");
+
+const nameSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true
+    },
+    age: Number
+});
+const Test = mongoose.model("test1", nameSchema);
+
+module.export =  Test;
